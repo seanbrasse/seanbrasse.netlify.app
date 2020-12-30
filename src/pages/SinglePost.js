@@ -3,10 +3,21 @@ import sanityClient from '../client.js';
 import { useParams } from 'react-router-dom';
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from '@sanity/block-content-to-react';
+import image from '../images/nyc1.jpg';
+import { NavLink } from 'react-router-dom';
+
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
     return builder.image(source)
+}
+
+function CurrentJob(props){
+    if(!props.dateExists){
+        return (<h4>Current Job</h4>);
+    }else{
+        return (<h4>Date Ended: {props.dateExists}</h4>)
+    }
 }
 
 export default function SinglePost() {
@@ -24,7 +35,10 @@ export default function SinglePost() {
                     url
                 }
             },
-            body, 
+            body,
+            dateStarted,
+            dateEnded,
+            place,
             "name": author->name,
             "authorImage":author->image
         }`
@@ -33,23 +47,27 @@ export default function SinglePost() {
             .catch(console.error);
     }, [slug]);
 
-    if (!singlePost) return <div>Loading...</div>;
-
+    if (!singlePost) return <div className="text-7xl font-bold cursive flex py-96 text-blue-500 justify-center">Loading Job Details...</div>;
+    var dateExists = singlePost.dateEnded;    
     return (
-        <main className="bg-gray-200 min-h-screen p-12">
-            <article className="containter shadow-lg mx-auto bg-green-100 rounded-lg">
+        <main className="bg-gray-200 min-h-screen" style={{ backgroundImage: `url(${image})` }}>
+            <img src={image} alt={"nyc photo"} className="absolute w-full opacity-60 bg-scroll"/>
+            <section className='p-12'>
+            <article className="containter relative shadow-lg mx-auto bg-gray-100 rounded-lg">
                 <header className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
-                        <div className="bg-white bg-opacity-75 rounded p-12">
-                            <h1 className="cursive text-3xl lf:text-6xl mb-4">
+                        <div className="bg-white bg-opacity-75 border-2 border-gray-600 rounded p-12">
+                            <h1 className="cursive text-5xl lf:text-6xl mb-4">
                                 {singlePost.title}
                             </h1>
-                            <div className="flex justify-center text-gray-800">
+                            <NavLink to='/about'>
+                            <div className="flex justify-center text-5xl text-gray-800">
                                 <img src={urlFor(singlePost.authorImage).url()}
                                     alt={singlePost.name}
-                                    className="w-20 h-20 rounded-full flex justify-center" />
+                                    className="w-40 h-40 rounded-full border-2 border-gray-600 flex justify-center" />
                             </div>
-                            <p className="cursive flex justify-center pl-2 text-2xl">{singlePost.name}</p>
+                            <p className="cursive flex justify-center pl-2 text-4xl">{singlePost.name}</p>
+                            </NavLink>
                         </div>
                     </div>
                     <img src={singlePost.mainImage.asset.url}
@@ -58,9 +76,17 @@ export default function SinglePost() {
                         style={{ height: "400px" }} />
                 </header>
                 <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                    <div className='text-right'>
+                        <h4 className= ''>Company:{" "}<strong>{singlePost.place}</strong></h4>
+                        <h4 className= ''>Date Started:{" "}{singlePost.dateStarted}{" "}</h4>
+                        <CurrentJob dateExists={dateExists}/>
+                        {/* {dateExists ? <h4>Date Ended: {singlePost.dateEnded}</h4>:<h4>Current Job</h4>} */}
+                    </div>
+                    <h3 className="text-1xl">Job Description: </h3>
                     <BlockContent blocks={singlePost.body} projectId="s0jrn46i" dataset="production" />
                 </div>
             </article>
+            </section>
         </main>
     )
 }

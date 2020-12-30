@@ -1,17 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import image from '../images/nyc1.jpg';
+import Sean from '../images/Sean.jpg';
 
 export default function Home() {
     return (
-        <main>
+        <main> 
             <img
                 src={image}
                 alt="NYC Background"
-                className='absolute object-cover w-full h-full' />
-            <section className='relative flex justify-center min-h-screen pt-12 lg:pt-64 px-8'>
+                className='absolute object-cover w-full' />
+            <section className='relative flex justify-center min-h-screen lg:pt-36 hover:text-blue-400'>
                 <NavLink to='/about'>
-                    <h1 className="text-6xl text-gray-100 font-bold cursive hover:text-blue-400 rounded hover:bg-gray-200 leading-none lg:leading-snug home-name">Hi, I'm Sean</h1>
+                        <div className='bg-gray-500 p-5 bg-opacity-80 rounded-lg hover:bg-gray-600 hover:bg-opacity-80 '>
+                            <div className="rounded flex justify-center">
+                                <img src={Sean} className='object-cover border-2 border-gray-600 h-96 w-96 bg-auto rounded-full'/>
+                            </div>
+                            <div>
+                                <h1 className="text-9xl text-white flex justify-center font-bold cursive rounded-full leading-none lg:leading-snug ">Hi, I'm Sean</h1>
+                            </div>
+                        </div>
                 </NavLink>
             </section>
         </main>

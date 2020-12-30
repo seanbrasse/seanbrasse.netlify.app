@@ -1,6 +1,6 @@
 export default {
   name: 'post',
-  title: 'Post',
+  title: 'Job Experience',
   type: 'document',
   fields: [
     {
@@ -30,6 +30,11 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'place',
+      title:'Place',
+      type: 'string',
     },
     {
       name: 'dateStarted',
@@ -62,3 +67,4 @@ export default {
     },
   },
 }
+

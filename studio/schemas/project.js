@@ -1,10 +1,11 @@
 export default {
-    name: 'project',
+    name: 'proj',
     title: 'Project',
     type: 'document',
     fields: [
         {
             name: 'title',
+            title: 'Project Title',
             type: 'string',
         },
         {
@@ -23,12 +24,9 @@ export default {
             to: { type: 'author' },
         },
         {
-            name: 'date',
-            type: 'date',
-        },
-        {
-            name: 'place',
-            type: 'string'
+            name: "place",
+            title: 'Place',
+            type: 'string',
         },
         {
             name: 'mainImage',
@@ -39,14 +37,19 @@ export default {
             },
         },
         {
+            name: 'date',
+            title: 'Date',
+            type: 'date',
+        },
+        {
             name: "projectType",
             title: "Project Type",
             type: "string",
             options: {
                 list: [
-                    { value: "personal", title: 'Personal' },
-                    { value: "client", title: 'Client' },
-                    { value: "school", title: 'School' },
+                    { value: "Personal", title: 'Personal' },
+                    { value: "Client", title: 'Client' },
+                    { value: "School", title: 'School' },
                 ],
             },
         },
@@ -65,6 +68,25 @@ export default {
             options: {
                 layout: 'tags'
             }
-        }
+        },
+        {
+            name: 'body',
+            title: 'Job Description',
+            type: 'blockContent',
+        },
     ],
-};
+
+    preview: {
+        select: {
+            title: 'title',
+            author: 'author.name',
+            media: 'mainImage',
+        },
+        prepare(selection) {
+            const { author } = selection
+            return Object.assign({}, selection, {
+                subtitle: author && `by ${author}`,
+            })
+        },
+    },
+}
