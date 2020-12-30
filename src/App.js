@@ -22,7 +22,7 @@ function App() {
         <Route component={Project} path='/project' />
       </Switch>
     </BrowserRouter>
-  )
+  ) 
 }
 
 export default App;
