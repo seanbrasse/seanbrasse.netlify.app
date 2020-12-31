@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import SinglePost from './pages/SinglePost';
@@ -11,7 +11,7 @@ import SingleProject from './pages/SingleProject';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <NavBar />
       <Switch>
         <Route component={Home} path='/' exact />
@@ -21,7 +21,7 @@ function App() {
         <Route component={Post} path='/post' />
         <Route component={Project} path='/project' />
       </Switch>
-    </BrowserRouter>
+    </Router>
   ) 
 }
 
