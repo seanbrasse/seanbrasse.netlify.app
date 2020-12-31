@@ -22,4 +22,4 @@ jobs:
           git config --global user.email "seanbrasse@gmail.com"
           git config --global user.name "seanbrasse"
           git remote set-url origin https://${{secrets.KEY}}@github.com/seanbrasse/seanbrasse.github.io.git
-          CI= yarn build
+          CI= npm run build
