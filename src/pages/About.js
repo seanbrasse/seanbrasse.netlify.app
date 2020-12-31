@@ -21,7 +21,7 @@ export default function About(){
         .catch(console.error)
     }, []);
 
-    // if(!author) return <div className="text-7xl font-bold cursive flex py-96 text-blue-500 justify-center">Loading Me...</div>;
+    if(!author) return <div className="text-7xl font-bold cursive flex py-96 text-blue-500 justify-center">Loading Me...</div>;
 
     return (
         <main className="relative">
