@@ -3,14 +3,16 @@ import { NavLink } from 'react-router-dom';
 import image from '../images/nyc1.jpg';
 import Sean from '../images/Sean.jpg';
 
+
+
 export default function Home() {
     return (
         <main> 
             <img
                 src={image}
                 alt="NYC Background"
-                className='absolute object-cover w-full' />
-            <section className='relative flex justify-center min-h-screen lg:pt-36 hover:text-blue-400'>
+                className='absolute min-w-full min-h-screen md:object-cover bg-blue-500' />
+            <section className='relative flex justify-center md:min-h-full pt-16 lg:pt-48 hover:text-blue-400'>
                 <NavLink to='/about'>
                         <div className='bg-gray-500 p-5 bg-opacity-80 rounded-lg hover:bg-gray-600 hover:bg-opacity-80 '>
                             <div className="rounded flex justify-center">
