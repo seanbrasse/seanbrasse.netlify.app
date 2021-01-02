@@ -2,18 +2,17 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Patrick+Hand+SC&display=swap");
 
-.cursive{
-  font-family: 'Patrick Hand SC', cursive;
+.cursive {
+  font-family: "Patrick Hand SC", Sans-Serif;
   font-weight: 400;
 }
 
-.prose img{
+.prose img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
 }
 
-.home-name{
+.home-name {
   font-size: 150px;
-
 }
