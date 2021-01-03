@@ -11,7 +11,7 @@ export default function Home() {
             <img
                 src={image}
                 alt="NYC Background"
-                className='absolute min-w-full min-h-screen md:object-cover bg-blue-500' />
+                className='absolute flex-grow min-w-full min-h-screen md:object-cover bg-blue-500' />
             <section className='relative flex justify-center md:min-h-full pt-16 lg:pt-48 hover:text-blue-400'>
                 <NavLink to='/about'>
                         <div className='bg-gray-500 p-5 bg-opacity-80 rounded-lg hover:bg-gray-600 hover:bg-opacity-80 '>
