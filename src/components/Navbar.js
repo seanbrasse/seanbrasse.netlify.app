@@ -105,7 +105,7 @@ function navi() {
         <img src={menu} />
       </button>
       <div
-        className="container mx-auto md:flex md:justify-between"
+        className="container mx-auto p-3 md:flex md:justify-between"
         id="normalNav"
       >
         <nav className="flex flex-col sm:flex-row ">

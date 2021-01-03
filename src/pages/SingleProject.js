@@ -52,8 +52,8 @@ export default function SingleProject() {
     <main className="bg-gray-200 min-h-screen">
       {/* <img src={image} alt={"nyc photo"} className="absolute w-full opacity-60 bg-scroll"/> */}
       <div
-        className="absolute min-w-full min-h-full bg-top
-        bg-cover bg-local opacity-75"
+        className="absolute min-w-full min-h-full bg-no-repeat bg-top
+        bg-cover bg-fixed opacity-75"
         style={{
           backgroundImage: `url(${image})`,
         }}
@@ -62,8 +62,8 @@ export default function SingleProject() {
         <article className="relative containter shadow-lg mx-auto bg-gray-100 rounded-lg">
           <header className="relative">
             <div className="absolute h-full w-full flex items-center justify-center p-8">
-              <div className="bg-white bg-opacity-75 rounded-lg border-2 border-gray-600 p-12">
-                <h1 className="cursive font-bold text-5xl lf:text-8xl mb-4">
+              <div className="bg-white bg-opacity-75 rounded-lg border-2 pt-4 border-gray-600 p-12">
+                <h1 className="cursive font-bold text-5xl lg:text-6xl mb-4">
                   {singleProject.title}
                 </h1>
                 <NavLink to="/about">
@@ -94,9 +94,9 @@ export default function SingleProject() {
               projectId="s0jrn46i"
               dataset="production"
             />
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row justify-center">
               <span className="p-10 text-left">
-                <strong className="font-bold">Finished On</strong>:{" "}
+                <strong className="font-bold text-center">Finished On</strong>:{" "}
                 {new Date(singleProject.date).toLocaleDateString()}
               </span>
               <span className="p-10 text-center">
@@ -107,7 +107,7 @@ export default function SingleProject() {
                 href={singleProject.link}
                 rel="noopener norefferer"
                 target="_blank"
-                className="p-10 text-right text-gray-800 font-bold hover:underline hover:text-blue-400"
+                className="p-10 text-right text-center text-gray-800 font-bold hover:underline hover:text-blue-400"
               >
                 View the Project{" "}
                 <span role="img" aria-label="right pointer">

@@ -63,7 +63,7 @@ export default function SinglePost() {
       {/* <img src={image} alt={"nyc photo"} className="absolute w-full opacity-60 bg-scroll"/> */}
       <div
         className="absolute min-w-full min-h-full bg-top
-        bg-cover bg-local opacity-75"
+        bg-contain bg-fixed opacity-75"
         style={{
           backgroundImage: `url(${image})`,
         }}
@@ -72,8 +72,8 @@ export default function SinglePost() {
         <article className="containter relative shadow-lg mx-auto bg-gray-100 rounded-lg">
           <header className="relative">
             <div className="absolute h-full w-full flex items-center justify-center p-8">
-              <div className="bg-white bg-opacity-75 border-2 border-gray-600 rounded p-12">
-                <h1 className="cursive text-5xl lf:text-6xl mb-4">
+              <div className="bg-white pt-4 bg-opacity-75 border-2 border-gray-600 rounded p-12">
+                <h1 className="cursive text-5xl lg:text-6xl mb-4">
                   {singlePost.title}
                 </h1>
                 <NavLink to="/about">
