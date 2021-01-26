@@ -67,11 +67,11 @@ export default function About() {
             </div>
           </section>
         </div>
-        <div className="p-10 lg-pt-48 container mx-auto relative">
+        {/* <div className="p-10 lg-pt-48 container mx-auto relative">
           <section className="bg-gray-600 rounded-lg shadow-2xl lg:flex p-20">
             <p></p>
           </section>
-        </div>
+        </div> */}
       </div>
     </main>
   );
